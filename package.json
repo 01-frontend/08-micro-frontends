@@ -4,7 +4,12 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:host-app": "cd ./host-app && npm start",
+    "start:overview": "cd ./overview && npm start",
+    "start:holdings": "cd ./holdings && npm start",
+    "start:order-placement": "cd ./order-placement && npm start",
+    "start:equity-info": "cd ./equity-info && npm start",
+    "start": "concurrently --kill-others \"npm run start:host-app\" \"npm run start:overview\" \"npm run start:holdings\" \"npm run start:order-placement\" \"npm run start:equity-info\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/tech-deep-dive/micro-frontends-dd/issues"
   },
-  "homepage": "https://github.com/tech-deep-dive/micro-frontends-dd#readme"
+  "homepage": "https://github.com/tech-deep-dive/micro-frontends-dd#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }

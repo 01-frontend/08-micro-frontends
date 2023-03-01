@@ -7,8 +7,8 @@ module.exports = merge(webpackBase, {
   mode: "development",
   devtool: "cheap-module-source-map",
   devServer: {
-    port: 3000,
-    open: true,
+    port: 3001,
+    open: false,
     historyApiFallback: true,
   },
   plugins: [dotenvWebpack({ path: ".env.development" })],
