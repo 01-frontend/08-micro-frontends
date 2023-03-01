@@ -1,5 +1,7 @@
+import Dashboard from "./Dashboard";
 
-
-const App = () => <div>Hallo</div>;
+const App = () => {
+  return <Dashboard />;
+};
 
 export default App;

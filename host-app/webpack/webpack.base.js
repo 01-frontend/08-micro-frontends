@@ -4,6 +4,8 @@ const bundleStatsWebpackPlugin = require("./plugins/bundle-stats-webpack-plugin"
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
 // const copyWebpackPlugin = require("./plugins/copy-webpack-plugin");
 const htmlWebpackPlugin = require("./plugins/html-webpack-plugin");
+
+const handleCss = require("./rules/handle-css");
 const handleImages = require("./rules/handle-images");
 const handleSvg = require("./rules/handle-svg");
 const handleTs = require("./rules/handle-ts");
@@ -19,7 +21,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   module: {
-    rules: [handleTs(), handleImages(), handleSvg()],
+    rules: [handleCss(), handleTs(), handleImages(), handleSvg()],
   },
   plugins: [
     htmlWebpackPlugin(),
