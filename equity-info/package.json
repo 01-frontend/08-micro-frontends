@@ -1,5 +1,5 @@
 {
-  "name": "minimal-react-boilerplate",
+  "name": "equity-info",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/project-boilerplate/minimal-react-boilerplate.git"
+    "url": "git+https://github.com/project-boilerplate/equity-info.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/project-boilerplate/minimal-react-boilerplate/issues"
+    "url": "https://github.com/project-boilerplate/equity-info/issues"
   },
-  "homepage": "https://github.com/project-boilerplate/minimal-react-boilerplate#readme",
+  "homepage": "https://github.com/project-boilerplate/equity-info#readme",
   "dependencies": {
     "@babel/runtime": "^7.20.6",
     "react": "^18.2.0",

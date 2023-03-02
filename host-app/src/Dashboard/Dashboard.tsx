@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Button, Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
-import { Header, Wrapper } from "./Dashboard.styled";
+import { useNavigate, Outlet } from "react-router-dom";
+import { Button, Nav, NavItem, NavLink } from "reactstrap";
+
+import { StyledHeader, StyledWrapper } from "./Dashboard.styled";
 import { Tab } from "./types";
 
 const activeTabStyle = {
@@ -9,19 +11,23 @@ const activeTabStyle = {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(Tab.Overview);
 
   const toggle = (tab) => {
-    if (activeTab !== tab) setActiveTab(tab);
+    if (activeTab !== tab) {
+      setActiveTab(tab);
+      navigate(tab);
+    }
   };
 
   return (
-    <Wrapper>
-      <Header>
+    <StyledWrapper>
+      <StyledHeader>
         <Button color="primary">Trade</Button>
-      </Header>
+      </StyledHeader>
       <Nav tabs>
-        <NavItem>
+        <NavItem style={{ cursor: "pointer" }}>
           <NavLink
             style={activeTab === Tab.Overview ? activeTabStyle : undefined}
             onClick={() => {
@@ -31,7 +37,7 @@ const Dashboard = () => {
             Overview
           </NavLink>
         </NavItem>
-        <NavItem>
+        <NavItem style={{ cursor: "pointer" }}>
           <NavLink
             style={activeTab === Tab.Holdings ? activeTabStyle : undefined}
             onClick={() => {
@@ -42,11 +48,8 @@ const Dashboard = () => {
           </NavLink>
         </NavItem>
       </Nav>
-      <TabContent activeTab={activeTab}>
-        <TabPane tabId={Tab.Overview}>This is Overview</TabPane>
-        <TabPane tabId={Tab.Holdings}>This is Holdings</TabPane>
-      </TabContent>
-    </Wrapper>
+      <Outlet />
+    </StyledWrapper>
   );
 };
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const StyledWrapper = styled.div`
   padding: 10px;
 `;
 
-export const Header = styled.div`
+export const StyledHeader = styled.div`
   height: 80px;
   display: flex;
   justify-content: flex-end;
