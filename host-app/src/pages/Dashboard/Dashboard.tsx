@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
+import { Drawer } from "src/components/Drawer";
 
 import {
   StyledButton,
   StyledHeader,
   StyledTab,
   StyledTabs,
-  StyledWrapper,
   WrapperOutlet,
 } from "./Dashboard.styled";
 import { Tab } from "./types";
@@ -14,6 +14,7 @@ import { Tab } from "./types";
 const Dashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(Tab.Overview);
+  const drawerRef = useRef(null);
 
   const changeTab = (tab) => {
     if (activeTab !== tab) {
@@ -22,10 +23,17 @@ const Dashboard = () => {
     }
   };
 
+  const openDrawer = () => {
+    drawerRef.current.openDrawer();
+  };
+
   return (
     <>
+      <Drawer ref={drawerRef} />
       <StyledHeader>
-        <StyledButton color="primary">Trade</StyledButton>
+        <StyledButton color="primary" onClick={openDrawer}>
+          Trade
+        </StyledButton>
       </StyledHeader>
       <StyledTabs>
         <StyledTab

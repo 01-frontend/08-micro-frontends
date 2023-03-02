@@ -3,12 +3,11 @@ import {
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
 
-import Dashboard from "./Dashboard";
-import { EquityInfo } from "./Dashboard/EquityInfo";
-import { Holdings } from "./Dashboard/Holdings";
-import { Overview } from "./Dashboard/Overview";
+import Dashboard from "./pages/Dashboard";
+import { EquityInfo } from "./pages/Dashboard/EquityInfo";
+import { Holdings } from "./pages/Dashboard/Holdings";
+import { Overview } from "./pages/Dashboard/Overview";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -24,15 +23,16 @@ const App = () => {
           path: "/holdings",
           element: <Holdings />,
         },
-        {
-          path: "/equity-info",
-          element: <EquityInfo />,
-        },
+
         {
           path: "/",
           element: <Navigate to="/overview" replace />,
         },
       ],
+    },
+    {
+      path: "/equity-info",
+      element: <EquityInfo />,
     },
   ]);
 

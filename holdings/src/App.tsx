@@ -1,5 +1,3 @@
-
-
-const App = () => <div>Hallo</div>;
+const App = () => <div>This is Holdings</div>;
 
 export default App;
