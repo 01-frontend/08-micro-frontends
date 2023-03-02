@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import { Button, Nav, NavItem, NavLink } from "reactstrap";
 
-import { StyledHeader, StyledWrapper } from "./Dashboard.styled";
+import {
+  StyledButton,
+  StyledHeader,
+  StyledTab,
+  StyledTabs,
+  StyledWrapper,
+  WrapperOutlet,
+} from "./Dashboard.styled";
 import { Tab } from "./types";
-
-const activeTabStyle = {
-  backgroundColor: "#0d6efd",
-  color: "#fff",
-};
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(Tab.Overview);
 
-  const toggle = (tab) => {
+  const changeTab = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
       navigate(tab);
@@ -22,34 +23,32 @@ const Dashboard = () => {
   };
 
   return (
-    <StyledWrapper>
+    <>
       <StyledHeader>
-        <Button color="primary">Trade</Button>
+        <StyledButton color="primary">Trade</StyledButton>
       </StyledHeader>
-      <Nav tabs>
-        <NavItem style={{ cursor: "pointer" }}>
-          <NavLink
-            style={activeTab === Tab.Overview ? activeTabStyle : undefined}
-            onClick={() => {
-              toggle(Tab.Overview);
-            }}
-          >
-            Overview
-          </NavLink>
-        </NavItem>
-        <NavItem style={{ cursor: "pointer" }}>
-          <NavLink
-            style={activeTab === Tab.Holdings ? activeTabStyle : undefined}
-            onClick={() => {
-              toggle(Tab.Holdings);
-            }}
-          >
-            Holdings
-          </NavLink>
-        </NavItem>
-      </Nav>
-      <Outlet />
-    </StyledWrapper>
+      <StyledTabs>
+        <StyledTab
+          isActive={activeTab === Tab.Overview}
+          onClick={() => {
+            changeTab(Tab.Overview);
+          }}
+        >
+          Overview
+        </StyledTab>
+        <StyledTab
+          isActive={activeTab === Tab.Holdings}
+          onClick={() => {
+            changeTab(Tab.Holdings);
+          }}
+        >
+          Holdings
+        </StyledTab>
+      </StyledTabs>
+      <WrapperOutlet>
+        <Outlet />
+      </WrapperOutlet>
+    </>
   );
 };
 

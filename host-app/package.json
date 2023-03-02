@@ -23,11 +23,9 @@
   "homepage": "https://github.com/project-boilerplate/host-app#readme",
   "dependencies": {
     "@babel/runtime": "^7.20.6",
-    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
-    "reactstrap": "^9.1.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

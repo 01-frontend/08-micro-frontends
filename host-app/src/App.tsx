@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 
 import Dashboard from "./Dashboard";
 import { EquityInfo } from "./Dashboard/EquityInfo";
