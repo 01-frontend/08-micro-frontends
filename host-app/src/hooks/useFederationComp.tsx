@@ -7,7 +7,7 @@ type UseFederationCompArgs = {
   module: string;
 };
 
-const constructComponent = (scope: string, module: string) => {
+const loadComponent = (scope: string, module: string) => {
   return async () => {
     // @ts-ignore
     await __webpack_init_sharing__("default");
@@ -15,8 +15,8 @@ const constructComponent = (scope: string, module: string) => {
     // @ts-ignore
     await container.init(__webpack_share_scopes__.default);
     const factory = await window[scope].get(module);
-    const component = factory();
-    return component;
+    const Module = factory();
+    return Module;
   };
 };
 
@@ -62,12 +62,13 @@ export const useFederatedComp = <CompType,>({
 
   useEffect(() => {
     if (isReady) {
-      const component = lazy(constructComponent(scope, module));
+      const component = lazy(loadComponent(scope, module));
       setComponent(component);
     }
   }, [isReady]);
 
   return {
+    hasError,
     component,
   };
 };

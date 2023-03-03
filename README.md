@@ -27,3 +27,10 @@ The complexity in setup and run base app with all child MFEs, how to manage data
 On the other hand, all child MFEs are separated so it isn't easy to follow a common standard such as libraries, data fetching, project structure...in entire child MFEs
 
 2.
+
+---
+
+## Reference
+
+https://dev.to/bitovi/how-to-build-a-micro-frontend-with-webpacks-module-federation-plugin-n41
+https://github.com/module-federation/module-federation-examples

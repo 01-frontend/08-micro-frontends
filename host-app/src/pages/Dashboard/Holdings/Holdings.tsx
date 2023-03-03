@@ -1,3 +1,16 @@
+import { Suspense } from "react";
+import { useFederatedComp } from "src/hooks/useFederationComp";
+
 export const Holdings = () => {
-  return <div>This is Holdings</div>;
+  const { component: HoldingsMFE } = useFederatedComp({
+    remoteUrl: "http://localhost:3002/remote-entry.js",
+    module: "./Holdings",
+    scope: "holdings",
+  });
+
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      {HoldingsMFE ? <HoldingsMFE /> : null}
+    </Suspense>
+  );
 };

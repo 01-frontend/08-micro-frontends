@@ -9,7 +9,7 @@
     "start:holdings": "cd ./holdings && npm start",
     "start:order-placement": "cd ./order-placement && npm start",
     "start:equity-info": "cd ./equity-info && npm start",
-    "start": "concurrently --kill-others \"npm run start:host-app\" \"npm run start:overview\" \"npm run start:holdings\" \"npm run start:order-placement\" \"npm run start:equity-info\""
+    "start": "concurrently --kill-others \"npm run start:overview\" \"npm run start:holdings\" \"npm run start:order-placement\" \"npm run start:equity-info\" \"npm run start:host-app\""
   },
   "repository": {
     "type": "git",

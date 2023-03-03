@@ -13,7 +13,7 @@ const moduleFederation = require("./plugins/module-federation");
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.ts"),
   output: {
-    publicPath: "/",
+    publicPath: "auto",
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.[chunkhash:8].js",
   },

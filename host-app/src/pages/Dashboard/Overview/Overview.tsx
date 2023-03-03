@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { useFederatedComp } from "src/hooks/useFederationComp";
 
 export const Overview = () => {
-  const { component: Component } = useFederatedComp({
+  const { component: OverviewMFE, hasError } = useFederatedComp({
     remoteUrl: "http://localhost:3001/remote-entry.js",
     module: "./Overview",
     scope: "overview",
@@ -10,7 +10,7 @@ export const Overview = () => {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      {Component ? <Component /> : null}
+      {hasError ? <p>Something wrong...</p> : OverviewMFE && <OverviewMFE />}
     </Suspense>
   );
 };
