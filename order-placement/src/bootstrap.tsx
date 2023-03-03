@@ -4,7 +4,6 @@ import * as ReactDOMClient from "react-dom/client";
 
 import App from "./App";
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = ReactDOMClient.createRoot(document.getElementById("root")!);
 
 root.render(
@@ -12,5 +11,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-export type AppDispatch = typeof store.dispatch;

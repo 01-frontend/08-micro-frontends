@@ -1,15 +1,16 @@
 const path = require("path");
 
+const handleCss = require("./rules/handle-css");
+const handleTs = require("./rules/handle-ts");
+const handleSvg = require("./rules/handle-svg");
+const handleImages = require("./rules/handle-images");
 const bundleStatsWebpackPlugin = require("./plugins/bundle-stats-webpack-plugin");
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
-// const copyWebpackPlugin = require("./plugins/copy-webpack-plugin");
 const htmlWebpackPlugin = require("./plugins/html-webpack-plugin");
-const handleImages = require("./rules/handle-images");
-const handleSvg = require("./rules/handle-svg");
-const handleTs = require("./rules/handle-ts");
+const moduleFederation = require("./plugins/module-federation");
 
 module.exports = {
-  entry: path.resolve(__dirname, "../src/index.tsx"),
+  entry: path.resolve(__dirname, "../src/index.ts"),
   output: {
     publicPath: "/",
     path: path.resolve(__dirname, "../dist"),
@@ -19,11 +20,12 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   module: {
-    rules: [handleTs(), handleImages(), handleSvg()],
+    rules: [handleCss(), handleTs(), handleImages(), handleSvg()],
   },
   plugins: [
     htmlWebpackPlugin(),
     cleanWebpackPlugin(),
     bundleStatsWebpackPlugin(),
+    moduleFederation(),
   ],
 };
