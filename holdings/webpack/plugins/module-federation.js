@@ -5,10 +5,10 @@ const deps = packageJson.dependencies;
 
 module.exports = () =>
   new ModuleFederationPlugin({
-    name: "overview",
+    name: "holdings",
     filename: "remote-entry.js",
     exposes: {
-      "./App": "./src/App",
+      "./Holdings": "./src/App",
     },
     shared: {
       ...deps,

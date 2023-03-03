@@ -8,6 +8,7 @@ const bundleStatsWebpackPlugin = require("./plugins/bundle-stats-webpack-plugin"
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
 const copyWebpackPlugin = require("./plugins/copy-webpack-plugin");
 const htmlWebpackPlugin = require("./plugins/html-webpack-plugin");
+const moduleFederation = require("./plugins/module-federation");
 
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.ts"),
@@ -27,5 +28,6 @@ module.exports = {
     cleanWebpackPlugin(),
     copyWebpackPlugin(),
     bundleStatsWebpackPlugin(),
+    moduleFederation(),
   ],
 };

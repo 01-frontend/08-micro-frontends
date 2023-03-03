@@ -8,7 +8,7 @@ module.exports = () =>
     name: "overview",
     filename: "remote-entry.js",
     exposes: {
-      "./App": "./src/App",
+      "./Overview": "./src/App",
     },
     shared: {
       ...deps,
