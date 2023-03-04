@@ -5,7 +5,7 @@
   // The chunk file should be loaded from remote url (3001) instead of host-app (3000)
 ```
 
-Solution: change the output.publicPath to "auto"
+Solution: change the `output.publicPath to "auto"`
 
 ```
   module.exports = {

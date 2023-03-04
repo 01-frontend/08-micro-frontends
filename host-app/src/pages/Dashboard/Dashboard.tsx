@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Drawer } from "src/components/Drawer";
 
 import {
@@ -13,7 +13,8 @@ import { Tab } from "./types";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState(Tab.Overview);
+  const { pathname } = useLocation();
+  const [activeTab, setActiveTab] = useState(pathname || Tab.Overview);
   const drawerRef = useRef(null);
 
   const changeTab = (tab) => {

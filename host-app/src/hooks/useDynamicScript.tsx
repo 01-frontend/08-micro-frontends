@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const urlsCache = new Set<string>();
 
-export const useDynamicScript = (url: string) => {
+export const useDynamicScript = (remoteUrl: string) => {
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  if (!url) {
-    return;
-  }
+  const dynamicRemoteUrl = useMemo(() => {
+    const url = new URL(remoteUrl);
+    url.searchParams.set("v", Date.now().toString()); // avoid cache
+    return url.toString();
+  }, [remoteUrl]);
 
   useEffect(() => {
-    if (urlsCache.has(url)) {
+    if (!remoteUrl) {
+      return;
+    }
+
+    if (urlsCache.has(remoteUrl)) {
       setIsReady(true);
       setIsLoading(false);
       setHasError(false);
@@ -24,12 +30,12 @@ export const useDynamicScript = (url: string) => {
     setHasError(false);
 
     const scriptElement = document.createElement("script");
-    scriptElement.src = url;
+    scriptElement.src = dynamicRemoteUrl;
     scriptElement.async = true;
     scriptElement.type = "text/javascript";
 
     scriptElement.onload = () => {
-      urlsCache.add(url);
+      urlsCache.add(remoteUrl);
       setIsReady(true);
       setIsLoading(false);
     };
@@ -43,10 +49,10 @@ export const useDynamicScript = (url: string) => {
     document.head.appendChild(scriptElement);
 
     return () => {
-      urlsCache.delete(url);
+      urlsCache.delete(remoteUrl);
       document.head.removeChild(scriptElement);
     };
-  }, [url]);
+  }, [remoteUrl]);
 
   return { isReady, isLoading, hasError };
 };

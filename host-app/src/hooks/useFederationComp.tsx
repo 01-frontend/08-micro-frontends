@@ -1,4 +1,4 @@
-import { ComponentType, lazy, useEffect, useMemo, useState } from "react";
+import { ComponentType, lazy, useEffect, useState } from "react";
 import { useDynamicScript } from "./useDynamicScript";
 
 type UseFederationCompArgs = {
@@ -10,9 +10,11 @@ type UseFederationCompArgs = {
 const loadComponent = (scope: string, module: string) => {
   return async () => {
     // @ts-ignore
+    // Initializes the share scope. This fills it with known provided modules from this build and all remotes
     await __webpack_init_sharing__("default");
     const container = window[scope];
     // @ts-ignore
+    // Initialize the container, it may provide shared modules
     await container.init(__webpack_share_scopes__.default);
     const factory = await window[scope].get(module);
     const Module = factory();
@@ -25,50 +27,38 @@ export const useFederatedComp = <CompType,>({
   scope,
   module,
 }: UseFederationCompArgs) => {
-  const [component, setComponent] = useState<ComponentType<CompType> | null>();
-
-  const timestampRemoteUrl = useMemo(() => {
-    const url = new URL(remoteUrl);
-    url.searchParams.set("v", Date.now().toString());
-    return url.toString();
-  }, [remoteUrl]);
-
-  const { isReady, isLoading, hasError } = useDynamicScript(timestampRemoteUrl);
+  const key = `${remoteUrl}-${scope}-${module}`;
+  const [Component, setComponent] = useState<ComponentType<CompType> | null>();
 
   useEffect(() => {
-    if (hasError) {
+    if (Component) {
+      setComponent(null); // Only recalculate when key changes
+    }
+  }, [key]);
+
+  const {
+    isReady: isScriptReady,
+    isLoading: isScriptLoading,
+    hasError: hasScriptError,
+  } = useDynamicScript(remoteUrl);
+
+  useEffect(() => {
+    if (hasScriptError) {
       setComponent(null);
-      throw new Error(
-        `Failed to load the module ${module} with url ${remoteUrl}`
-      );
+      throw new Error(`Failed to load the ${key}`);
     }
-  }, [hasError]);
-
-  const InfComp = useMemo(() => {
-    return lazy(() => {
-      return new Promise<{ default: ComponentType<unknown> }>((res) => {
-        setTimeout(() => {
-          res({ default: () => null });
-        }, 3000);
-      });
-    });
-  }, [isLoading]);
+  }, [hasScriptError]);
 
   useEffect(() => {
-    if (isLoading) {
-      setComponent(InfComp);
-    }
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isReady) {
+    if (isScriptReady) {
       const component = lazy(loadComponent(scope, module));
       setComponent(component);
     }
-  }, [isReady]);
+  }, [isScriptReady]);
 
   return {
-    hasError,
-    component,
+    isScriptLoading,
+    hasScriptError,
+    Component,
   };
 };
