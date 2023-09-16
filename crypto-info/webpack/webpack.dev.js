@@ -10,7 +10,7 @@ module.exports = merge(webpackBase, {
   devtool: "cheap-module-source-map",
   devServer: {
     port: process.env.PORT,
-    open: false,
+    open: true,
     historyApiFallback: true,
   },
   plugins: [definePlugin()],

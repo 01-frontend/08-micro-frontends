@@ -7,5 +7,5 @@ require("dotenv").config({ path: "./.env.production" });
 
 module.exports = merge(webpackBase, {
   mode: "production",
-  plugins: [definePlugin],
+  plugins: [definePlugin()],
 });

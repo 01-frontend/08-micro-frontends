@@ -4,12 +4,13 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "start:host-app": "cd ./host-app && npm start",
-    "start:overview": "cd ./overview && npm start",
+    "start:base-app": "cd ./base-app && npm start",
+    "start:crypto-info": "cd ./crypto-info && npm start",
     "start:holdings": "cd ./holdings && npm start",
-    "start:order-placement": "cd ./order-placement && npm start",
-    "start:equity-info": "cd ./equity-info && npm start",
-    "start": "concurrently --kill-others \"npm run start:overview\" \"npm run start:holdings\" \"npm run start:order-placement\" \"npm run start:equity-info\" \"npm run start:host-app\""
+    "start:order-mgt": "cd ./order-mgt && npm start",
+    "start:latest-stories": "cd ./latest-stories && npm start",
+    "start:placed-trade": "cd ./placed-trade && npm start",
+    "start": "concurrently --kill-others \"npm run start:crypto-info\" \"npm run start:holdings\" \"npm run start:order-mgt\" \"npm run start:latest-stories\" \"npm run start:placed-trade\" \"npm run start:base-app\""
   },
   "repository": {
     "type": "git",
