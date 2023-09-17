@@ -1,5 +1,5 @@
+const { MfeName } = require("shared-lib/dist/constants");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const { MfeName } = require("shared-lib/common/constants");
 
 const packageJson = require("../../package.json");
 

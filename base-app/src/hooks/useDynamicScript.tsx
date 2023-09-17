@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 const urlsCache = new Set<string>();
+console.log("useDynamicScript run");
 
 export const useDynamicScript = (remoteUrl: string) => {
   const [isReady, setIsReady] = useState(false);
@@ -17,6 +18,10 @@ export const useDynamicScript = (remoteUrl: string) => {
     if (!remoteUrl) {
       return;
     }
+
+    console.log("urlsCache", urlsCache);
+    console.log("remoteUrl", remoteUrl);
+    console.log("----------------------------");
 
     if (urlsCache.has(remoteUrl)) {
       setIsReady(true);
@@ -35,6 +40,9 @@ export const useDynamicScript = (remoteUrl: string) => {
     scriptElement.type = "text/javascript";
 
     scriptElement.onload = () => {
+      console.log("script onload");
+      console.log("urlsCache", urlsCache);
+      console.log("----------------------------");
       urlsCache.add(remoteUrl);
       setIsReady(true);
       setIsLoading(false);
@@ -49,6 +57,7 @@ export const useDynamicScript = (remoteUrl: string) => {
     document.head.appendChild(scriptElement);
 
     return () => {
+      console.log("clear");
       urlsCache.delete(remoteUrl);
       document.head.removeChild(scriptElement);
     };

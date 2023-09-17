@@ -14,7 +14,7 @@ import { Tab } from "./types";
 const Dashboard = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [activeTab, setActiveTab] = useState(pathname || Tab.Overview);
+  const [activeTab, setActiveTab] = useState(pathname || Tab.CryptoInfo);
   const drawerRef = useRef(null);
 
   const changeTab = (tab) => {
@@ -38,12 +38,12 @@ const Dashboard = () => {
       </StyledHeader>
       <StyledTabs>
         <StyledTab
-          isActive={activeTab === Tab.Overview}
+          isActive={activeTab === Tab.CryptoInfo}
           onClick={() => {
-            changeTab(Tab.Overview);
+            changeTab(Tab.CryptoInfo);
           }}
         >
-          Overview
+          Crypto Info
         </StyledTab>
         <StyledTab
           isActive={activeTab === Tab.Holdings}

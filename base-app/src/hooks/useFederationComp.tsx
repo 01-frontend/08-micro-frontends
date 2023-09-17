@@ -1,4 +1,5 @@
 import { ComponentType, lazy, useEffect, useState } from "react";
+
 import { useDynamicScript } from "./useDynamicScript";
 
 type UseFederationCompArgs = {
@@ -47,14 +48,14 @@ export const useFederatedComp = <CompType,>({
       setComponent(null);
       throw new Error(`Failed to load the ${key}`);
     }
-  }, [hasScriptError]);
+  }, [hasScriptError, key]);
 
   useEffect(() => {
     if (isScriptReady) {
       const component = lazy(loadComponent(scope, module));
       setComponent(component);
     }
-  }, [isScriptReady]);
+  }, [isScriptReady, module, scope]);
 
   return {
     isScriptLoading,

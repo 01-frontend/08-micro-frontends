@@ -1,4 +1,4 @@
 export enum Tab {
-  Overview = "/overview",
+  CryptoInfo = "/crypto-info",
   Holdings = "/holdings",
 }

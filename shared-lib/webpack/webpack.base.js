@@ -8,11 +8,13 @@ const handleTs = require("./rules/handle-ts");
 
 module.exports = {
   mode: "production",
-  entry: [path.resolve(__dirname, "../src/common/constants.ts")],
+  entry: {
+    constants: path.resolve(__dirname, "../src/common/constants.ts"),
+  },
   output: {
-    publicPath: "auto",
     path: path.resolve(__dirname, "../dist"),
-    filename: "bundle.[chunkhash:8].js",
+    filename: "[name].js",
+    libraryTarget: "commonjs",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],

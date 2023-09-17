@@ -3,11 +3,11 @@ import { Suspense } from "react";
 import { MfeName, MfePort } from "shared-lib/dist/constants";
 import { useFederatedComp } from "src/hooks/useFederationComp";
 
-export const CryptoInfo = () => {
+export const OrderMgt = () => {
   const { Component, isScriptLoading, hasScriptError } = useFederatedComp({
-    remoteUrl: `http://localhost:${MfePort.CRYPTO_INFO}/remote-entry.js`,
+    remoteUrl: `http://localhost:${MfePort.ORDER_MGT}/remote-entry.js`,
     module: "./App",
-    scope: MfeName.CRYPTO_INFO,
+    scope: MfeName.ORDER_MGT,
   });
 
   if (isScriptLoading) {
