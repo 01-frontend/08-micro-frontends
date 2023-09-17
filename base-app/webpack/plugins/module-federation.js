@@ -5,7 +5,7 @@ const deps = packageJson.dependencies;
 
 module.exports = () =>
   new ModuleFederationPlugin({
-    name: "host_app",
+    name: "baseApp",
     shared: {
       ...deps,
       react: {

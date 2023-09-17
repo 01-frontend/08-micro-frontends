@@ -1,13 +1,13 @@
 const path = require("path");
 
-const handleCss = require("./rules/handle-css");
-const handleTs = require("./rules/handle-ts");
-const handleSvg = require("./rules/handle-svg");
-const handleImages = require("./rules/handle-images");
 const bundleStatsWebpackPlugin = require("./plugins/bundle-stats-webpack-plugin");
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
 const htmlWebpackPlugin = require("./plugins/html-webpack-plugin");
 const moduleFederation = require("./plugins/module-federation");
+const handleCss = require("./rules/handle-css");
+const handleImages = require("./rules/handle-images");
+const handleSvg = require("./rules/handle-svg");
+const handleTs = require("./rules/handle-ts");
 
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.ts"),

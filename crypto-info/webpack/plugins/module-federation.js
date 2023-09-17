@@ -1,14 +1,16 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { MfeName } = require("shared-lib/common/constants");
+
 const packageJson = require("../../package.json");
 
 const deps = packageJson.dependencies;
 
 module.exports = () =>
   new ModuleFederationPlugin({
-    name: "equity_info",
+    name: MfeName.CRYPTO_INFO,
     filename: "remote-entry.js",
     exposes: {
-      "./EquityInfo": "./src/App",
+      "./App": "./src/App",
     },
     shared: {
       ...deps,
