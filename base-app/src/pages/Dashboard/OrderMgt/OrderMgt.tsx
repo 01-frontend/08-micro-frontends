@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { MfeName, MfePort } from "shared-lib/dist/constants";
+import { MfeName, MfePort } from "shared-lib/dist/common/constants";
 import { useFederatedComp } from "src/hooks/useFederationComp";
 
 export const OrderMgt = () => {

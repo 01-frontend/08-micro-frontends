@@ -1,5 +1,7 @@
 const path = require("path");
 
+const glob = require("glob");
+
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
 const handleCss = require("./rules/handle-css");
 const handleImages = require("./rules/handle-images");
@@ -8,9 +10,14 @@ const handleTs = require("./rules/handle-ts");
 
 module.exports = {
   mode: "production",
-  entry: {
-    constants: path.resolve(__dirname, "../src/common/constants.ts"),
-  },
+  entry: glob.sync("./src/**/*.{ts,tsx}").reduce((acc, path) => {
+    const buildPath = path
+      .replace("./src/", "./")
+      .replace(".ts", "")
+      .replace(".tsx", "");
+    acc[buildPath] = path;
+    return acc;
+  }, {}),
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "[name].js",

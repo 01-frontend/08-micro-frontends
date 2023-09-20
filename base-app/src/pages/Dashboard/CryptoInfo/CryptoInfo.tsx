@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 
-import { MfeName, MfePort } from "shared-lib/dist/constants";
+import { MfeName, MfePort } from "shared-lib/dist/common/constants";
+import { Foo } from "shared-lib/dist/components";
 import { useFederatedComp } from "src/hooks/useFederationComp";
 
 export const CryptoInfo = () => {
@@ -21,6 +22,7 @@ export const CryptoInfo = () => {
   return (
     <Suspense fallback={<p>Suspense Loading...</p>}>
       {Component && <Component />}
+      <Foo />
     </Suspense>
   );
 };
