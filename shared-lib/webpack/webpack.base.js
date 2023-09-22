@@ -8,16 +8,20 @@ const handleImages = require("./rules/handle-images");
 const handleSvg = require("./rules/handle-svg");
 const handleTs = require("./rules/handle-ts");
 
+const entry = glob.sync("./src/**/*.{ts,tsx}").reduce((acc, path) => {
+  const buildPath = path
+    .replace("./src/", "./")
+    .replace(".tsx", "")
+    .replace(".ts", "");
+  acc[buildPath] = path;
+  return acc;
+}, {});
+
+console.log(entry);
+
 module.exports = {
   mode: "production",
-  entry: glob.sync("./src/**/*.{ts,tsx}").reduce((acc, path) => {
-    const buildPath = path
-      .replace("./src/", "./")
-      .replace(".ts", "")
-      .replace(".tsx", "");
-    acc[buildPath] = path;
-    return acc;
-  }, {}),
+  entry,
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "[name].js",
