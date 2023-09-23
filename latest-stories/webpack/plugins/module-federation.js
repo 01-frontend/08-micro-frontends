@@ -8,7 +8,7 @@ const deps = packageJson.dependencies;
 module.exports = () =>
   new ModuleFederationPlugin({
     name: MfeName.LATEST_STORIES,
-    filename: "remote-entry.js",
+    filename: "remoteEntry.js",
     exposes: {
       "./App": "./src/App",
     },

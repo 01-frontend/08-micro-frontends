@@ -3,7 +3,7 @@ import { mfeLoader } from "shared-lib/dist/hooks/mfeLoader";
 
 export const Holdings = () => {
   return mfeLoader({
-    remoteUrl: `http://localhost:${MfePort.HOLDINGS}/remote-entry.js`,
+    remoteUrl: `http://localhost:${MfePort.HOLDINGS}/remoteEntry.js`,
     mfeName: MfeName.HOLDINGS,
     moduleName: "./App",
   });

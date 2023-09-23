@@ -8,7 +8,7 @@ const deps = packageJson.dependencies;
 module.exports = () =>
   new ModuleFederationPlugin({
     name: MfeName.ORDER_MGT,
-    filename: "remote-entry.js",
+    filename: "remoteEntry.js",
     exposes: {
       "./App": "./src/App",
     },
