@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import { CryptoInfo } from "./pages/Dashboard/CryptoInfo";
 import { Holdings } from "./pages/Dashboard/Holdings";
 import { OrderMgt } from "./pages/Dashboard/OrderMgt";
+import { Tab } from "./pages/Dashboard/types";
 
 export const Routes = () => {
   const router = createBrowserRouter([
@@ -16,20 +17,20 @@ export const Routes = () => {
       element: <Dashboard />,
       children: [
         {
-          path: "/crypto-info",
+          path: Tab.CryptoInfo,
           element: <CryptoInfo />,
         },
         {
-          path: "/holdings",
+          path: Tab.Holdings,
           element: <Holdings />,
         },
         {
-          path: "/order-mgt",
+          path: Tab.OrderMgt,
           element: <OrderMgt />,
         },
         {
           path: "/",
-          element: <Navigate to="/crypto-info" replace />,
+          element: <Navigate to={Tab.CryptoInfo} replace />,
         },
       ],
     },

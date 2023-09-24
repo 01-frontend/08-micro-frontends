@@ -1,3 +1,3 @@
-const App = () => <p>This is latest-stories</p>;
+const App = () => <div>This is latest-stories</div>;
 
 export default App;

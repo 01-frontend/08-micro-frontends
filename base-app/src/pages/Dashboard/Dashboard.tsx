@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Drawer } from "src/components/Drawer";
@@ -15,7 +15,8 @@ import { Tab } from "./types";
 const Dashboard = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [activeTab, setActiveTab] = useState(pathname || Tab.CryptoInfo);
+  const initPathname = pathname === "/" ? Tab.CryptoInfo : pathname;
+  const [activeTab, setActiveTab] = useState(initPathname);
   const drawerRef = useRef(null);
 
   const changeTab = (tab) => {
@@ -29,6 +30,32 @@ const Dashboard = () => {
     drawerRef.current.openDrawer();
   };
 
+  const tabs = useMemo(() => {
+    return [
+      {
+        isActive: activeTab === Tab.CryptoInfo,
+        title: "Crypto Info",
+        onClick: () => {
+          changeTab(Tab.CryptoInfo);
+        },
+      },
+      {
+        isActive: activeTab === Tab.Holdings,
+        title: "Holdings",
+        onClick: () => {
+          changeTab(Tab.Holdings);
+        },
+      },
+      {
+        isActive: activeTab === Tab.OrderMgt,
+        title: "Order Mgt",
+        onClick: () => {
+          changeTab(Tab.OrderMgt);
+        },
+      },
+    ];
+  }, [activeTab]);
+
   return (
     <>
       <Drawer ref={drawerRef} />
@@ -38,22 +65,11 @@ const Dashboard = () => {
         </StyledButton>
       </StyledHeader>
       <StyledTabs>
-        <StyledTab
-          isActive={activeTab === Tab.CryptoInfo}
-          onClick={() => {
-            changeTab(Tab.CryptoInfo);
-          }}
-        >
-          Crypto Info
-        </StyledTab>
-        <StyledTab
-          isActive={activeTab === Tab.Holdings}
-          onClick={() => {
-            changeTab(Tab.Holdings);
-          }}
-        >
-          Holdings
-        </StyledTab>
+        {tabs.map(({ title, isActive, onClick }) => (
+          <StyledTab key={title} isActive={isActive} onClick={onClick}>
+            {title}
+          </StyledTab>
+        ))}
       </StyledTabs>
       <WrapperOutlet>
         <Outlet />

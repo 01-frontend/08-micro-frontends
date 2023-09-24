@@ -1,3 +1,3 @@
-const App = () => <p>This is Order Mgt</p>;
+const App = () => <div>This is Order Mgt</div>;
 
 export default App;

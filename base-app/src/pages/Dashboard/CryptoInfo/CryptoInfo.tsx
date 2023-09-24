@@ -1,5 +1,5 @@
 import { MfeName, MfePort } from "shared-lib/dist/common/constants";
-import { mfeLoader } from "src/hooks/mfeLoader";
+import { mfeLoader } from "shared-lib/dist/hooks/mfeLoader";
 
 export const CryptoInfo = () => {
   return mfeLoader({
