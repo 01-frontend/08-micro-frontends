@@ -1,10 +1,8 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
-import { Drawer } from "src/components/Drawer";
 
 import {
-  StyledButton,
   StyledHeader,
   StyledTab,
   StyledTabs,
@@ -17,17 +15,12 @@ const Dashboard = () => {
   const { pathname } = useLocation();
   const initPathname = pathname === "/" ? Tab.CryptoInfo : pathname;
   const [activeTab, setActiveTab] = useState(initPathname);
-  const drawerRef = useRef(null);
 
   const changeTab = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
       navigate(tab);
     }
-  };
-
-  const openDrawer = () => {
-    drawerRef.current.openDrawer();
   };
 
   const tabs = useMemo(() => {
@@ -56,14 +49,16 @@ const Dashboard = () => {
     ];
   }, [activeTab]);
 
-  return (
-    <>
-      <Drawer ref={drawerRef} />
+  const renderHeader = () => {
+    return (
       <StyledHeader>
-        <StyledButton color="primary" onClick={openDrawer}>
-          Trade
-        </StyledButton>
+        <h3>Online Crypto Trading</h3>
       </StyledHeader>
+    );
+  };
+
+  const renderTabs = () => {
+    return (
       <StyledTabs>
         {tabs.map(({ title, isActive, onClick }) => (
           <StyledTab key={title} isActive={isActive} onClick={onClick}>
@@ -71,6 +66,13 @@ const Dashboard = () => {
           </StyledTab>
         ))}
       </StyledTabs>
+    );
+  };
+
+  return (
+    <>
+      {renderHeader()}
+      {renderTabs()}
       <WrapperOutlet>
         <Outlet />
       </WrapperOutlet>

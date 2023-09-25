@@ -6,5 +6,8 @@ export const CryptoInfo = () => {
     remoteUrl: `http://localhost:${MfePort.CRYPTO_INFO}/remoteEntry.js`,
     mfeName: MfeName.CRYPTO_INFO,
     moduleName: "./App",
+    mfeProps: {
+      data: "hello",
+    },
   });
 };

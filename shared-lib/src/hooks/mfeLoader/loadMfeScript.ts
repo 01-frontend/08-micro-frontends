@@ -11,11 +11,11 @@ const getDynamicRemoteUrl = (remoteUrl: string): string => {
 
 export const loadMfeScript = (mfeName: string, remoteUrl: string) =>
   new Promise((resolve, reject) => {
-    if (window[mfeName].status === MfeStatus.INIT_SUCCESS) {
+    if (window[mfeName]?.status === MfeStatus.INIT_SUCCESS) {
       resolve(`Init ${mfeName} MFE success before`);
     }
 
-    if (window[mfeName].status === MfeStatus.INIT_FAILED) {
+    if (window[mfeName]?.status === MfeStatus.INIT_FAILED) {
       reject(`Init ${mfeName} MFE failed before`);
     }
 
@@ -38,16 +38,18 @@ export const loadMfeScript = (mfeName: string, remoteUrl: string) =>
         `[data-mfe="${mfeName}"]`
       ) as HTMLScriptElement;
 
-      if (!existedMfeScript) {
-        const initScript = document.createElement("script");
-        initScript.type = "text/javascript";
-        initScript.src = getDynamicRemoteUrl(remoteUrl);
-        initScript.setAttribute("data-mfe", mfeName);
-        initScript.async = true;
-        initScript.onload = onLoad;
-        initScript.onerror = onError;
-
-        document.head.appendChild(initScript);
+      if (existedMfeScript) {
+        document.head.removeChild(existedMfeScript);
       }
+
+      const initScript = document.createElement("script");
+      initScript.type = "text/javascript";
+      initScript.src = getDynamicRemoteUrl(remoteUrl);
+      initScript.setAttribute("data-mfe", mfeName);
+      initScript.async = true;
+      initScript.onload = onLoad;
+      initScript.onerror = onError;
+
+      document.head.appendChild(initScript);
     })();
   });

@@ -1,11 +1,11 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-import { createPortal } from "react-dom";
 
+import { createPortal } from "react-dom";
 import CloseIcon from "src/assets/icons/close.svg";
 
 import { DrawerHeader, StyledDrawer, StyledOverlay } from "./Drawer.styled";
 
-export const Drawer = forwardRef((props, ref) => {
+const Drawer = (props, ref) => {
   const [isDisplay, setIsDisplay] = useState(false);
 
   const openDrawer = () => setIsDisplay(true);
@@ -33,4 +33,6 @@ export const Drawer = forwardRef((props, ref) => {
   };
 
   return isDisplay && createPortal(renderDrawer(), document.body);
-});
+};
+
+export const ForwardRefDrawer = forwardRef(Drawer);

@@ -7,18 +7,9 @@ export const StyledWrapper = styled.div`
 export const StyledHeader = styled.div`
   height: 80px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding-right: 24px;
-`;
-
-export const StyledButton = styled.button`
-  background-color: #c91f37;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 3px;
-  cursor: pointer;
 `;
 
 export const StyledTabs = styled.div`
@@ -26,8 +17,10 @@ export const StyledTabs = styled.div`
   padding: 0 20px;
 `;
 
-export const StyledTab = styled.button`
+export const StyledTab = styled.span`
   ${({ isActive }: { isActive: boolean }) => css`
+    height: 44px;
+    display: inline-block;
     border: none;
     border-bottom: 3px solid ${isActive ? "#c91f37" : "transparent"};
     font-weight: ${isActive ? "bold" : "normal"};
