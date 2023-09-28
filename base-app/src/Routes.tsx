@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
 import { CryptoInfo } from "./pages/Dashboard/CryptoInfo";
@@ -9,23 +9,14 @@ import { Tab } from "./pages/Dashboard/types";
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <Dashboard />
-          <Route path={Tab.CryptoInfo}>
-            <CryptoInfo />
-          </Route>
-          <Route path={Tab.Holdings}>
-            <Holdings />
-          </Route>
-          <Route path={Tab.OrderMgt}>
-            <OrderMgt />
-          </Route>
-          <Route path="/">
-            <Redirect to={Tab.CryptoInfo} />
-          </Route>
+      <Routes>
+        <Route path="/" element={<Dashboard />}>
+          <Route path={`${Tab.CryptoInfo}/*`} element={<CryptoInfo />} />
+          <Route path={`${Tab.Holdings}/*`} element={<Holdings />} />
+          <Route path={`${Tab.OrderMgt}/*`} element={<OrderMgt />} />
+          <Route path="/" element={<Navigate to={Tab.CryptoInfo} replace />} />
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 };
