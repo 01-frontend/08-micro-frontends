@@ -28,8 +28,5 @@
   "homepage": "https://github.com/tech-deep-dive/micro-frontends-dd#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
-  },
-  "dependencies": {
-    "react-router-dom": "^6.16.0"
   }
 }

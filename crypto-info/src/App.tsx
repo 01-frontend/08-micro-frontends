@@ -1,6 +1,14 @@
+import { StrictMode } from "react";
+
+import { AppRoutes } from "./Routes";
+
 const App = (props) => {
   console.log(props);
-  return <div>This is Equity Info</div>;
+  return (
+    <StrictMode>
+      <AppRoutes />
+    </StrictMode>
+  );
 };
 
 export default App;

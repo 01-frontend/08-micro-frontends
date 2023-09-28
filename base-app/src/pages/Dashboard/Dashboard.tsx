@@ -1,17 +1,12 @@
 import { useMemo, useState } from "react";
 
-import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
-import {
-  StyledHeader,
-  StyledTab,
-  StyledTabs,
-  WrapperOutlet,
-} from "./Dashboard.styled";
+import { StyledHeader, StyledTab, StyledTabs } from "./Dashboard.styled";
 import { Tab } from "./types";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const { pathname } = useLocation();
   const initPathname = pathname === "/" ? Tab.CryptoInfo : pathname;
   const [activeTab, setActiveTab] = useState(initPathname);
@@ -19,7 +14,7 @@ const Dashboard = () => {
   const changeTab = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
-      navigate(tab);
+      history.push(tab);
     }
   };
 
@@ -73,9 +68,6 @@ const Dashboard = () => {
     <>
       {renderHeader()}
       {renderTabs()}
-      <WrapperOutlet>
-        <Outlet />
-      </WrapperOutlet>
     </>
   );
 };

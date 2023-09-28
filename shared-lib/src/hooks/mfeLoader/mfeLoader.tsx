@@ -8,7 +8,6 @@ interface IMfeLoaderProps {
   remoteUrl: string;
   mfeName: string;
   moduleName?: string;
-  mfeProps?: any;
   errorElement?: ReactNode;
   loadingElement?: ReactNode;
 }
@@ -20,7 +19,6 @@ export const mfeLoader = ({
   remoteUrl,
   mfeName,
   moduleName = "./App",
-  mfeProps,
   errorElement,
   loadingElement,
 }: IMfeLoaderProps) => {
@@ -32,16 +30,20 @@ export const mfeLoader = ({
     })
   );
 
-  return (
-    <ErrorBoundary
-      fallbackRender={(error) => {
-        console.log(error);
-        return errorElement || defaultError;
-      }}
-    >
-      <Suspense fallback={loadingElement || defaultLoading}>
-        <Component {...mfeProps} />
-      </Suspense>
-    </ErrorBoundary>
-  );
+  const BuiltComponent = (props) => {
+    return (
+      <ErrorBoundary
+        fallbackRender={(error) => {
+          console.log(error);
+          return errorElement || defaultError;
+        }}
+      >
+        <Suspense fallback={loadingElement || defaultLoading}>
+          <Component {...props} />
+        </Suspense>
+      </ErrorBoundary>
+    );
+  };
+
+  return BuiltComponent;
 };
