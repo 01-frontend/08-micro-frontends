@@ -1,12 +1,13 @@
-import { StrictMode } from "react";
+import { FC, StrictMode } from "react";
 
-import { AppRoutes } from "./Routes";
+import { CommonMfeProps } from "shared-lib/dist/common/types";
 
-const App = (props) => {
-  console.log(props);
+import { Routes } from "./Routes";
+
+const App: FC<CommonMfeProps> = ({ basePath }) => {
   return (
     <StrictMode>
-      <AppRoutes />
+      <Routes basePath={basePath} />
     </StrictMode>
   );
 };

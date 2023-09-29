@@ -1,4 +1,4 @@
-import { lazy, ReactNode, Suspense } from "react";
+import { FC, lazy, ReactNode, Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -15,7 +15,7 @@ interface IMfeLoaderProps {
 const defaultError = <div>Ops! Something went wrong</div>;
 const defaultLoading = <div>Loading...</div>;
 
-export const mfeLoader = ({
+export const mfeLoader = <CompType,>({
   remoteUrl,
   mfeName,
   moduleName = "./App",
@@ -30,7 +30,7 @@ export const mfeLoader = ({
     })
   );
 
-  const BuiltComponent = (props) => {
+  const BuiltComponent: FC<CompType> = (props) => {
     return (
       <ErrorBoundary
         fallbackRender={(error) => {
