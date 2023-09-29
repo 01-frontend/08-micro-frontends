@@ -3,6 +3,7 @@ const path = require("path");
 const glob = require("glob");
 
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
+const copyWebpackPlugin = require("./plugins/copy-webpack-plugin");
 const handleCss = require("./rules/handle-css");
 const handleImages = require("./rules/handle-images");
 const handleSvg = require("./rules/handle-svg");
@@ -29,5 +30,5 @@ module.exports = {
   module: {
     rules: [handleCss(), handleTs(), handleImages(), handleSvg()],
   },
-  plugins: [cleanWebpackPlugin()],
+  plugins: [cleanWebpackPlugin(), copyWebpackPlugin()],
 };

@@ -16,5 +16,5 @@
     "declaration": true // Generate .d.ts files
   },
   "include": ["src/**/*", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/__tests__/**"]
+  "exclude": ["node_modules", "**/__tests__/**", "dist/*"]
 }

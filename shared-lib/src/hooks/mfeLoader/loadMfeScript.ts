@@ -38,18 +38,17 @@ export const loadMfeScript = (mfeName: string, remoteUrl: string) =>
         `[data-mfe="${mfeName}"]`
       ) as HTMLScriptElement;
 
-      if (existedMfeScript) {
-        document.head.removeChild(existedMfeScript);
+      if (!existedMfeScript) {
+        const initScript = document.createElement("script");
+        initScript.type = "text/javascript";
+        initScript.src = getDynamicRemoteUrl(remoteUrl);
+        initScript.setAttribute("data-mfe", mfeName);
+        initScript.crossOrigin = "anonymous";
+        initScript.async = true;
+        initScript.onload = onLoad;
+        initScript.onerror = onError;
+
+        document.head.appendChild(initScript);
       }
-
-      const initScript = document.createElement("script");
-      initScript.type = "text/javascript";
-      initScript.src = getDynamicRemoteUrl(remoteUrl);
-      initScript.setAttribute("data-mfe", mfeName);
-      initScript.async = true;
-      initScript.onload = onLoad;
-      initScript.onerror = onError;
-
-      document.head.appendChild(initScript);
     })();
   });
