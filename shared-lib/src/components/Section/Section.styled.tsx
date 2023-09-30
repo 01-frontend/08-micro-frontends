@@ -1,5 +1,6 @@
-import { Color, FontWeight } from "src/styles/variables";
 import styled from "styled-components";
+
+import { Color, FontWeight } from "../../styles/variables";
 
 export const StyledSection = styled.div`
   border: 1px solid ${Color.Light3};

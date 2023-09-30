@@ -1,3 +1,5 @@
+import Section from "../../component/Section";
+
 export const Overview = () => {
-  return <div>Cryptoinfo Overview</div>;
+  return <div>overview</div>;
 };

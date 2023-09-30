@@ -2,8 +2,6 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 
 import { createPortal } from "react-dom";
 
-import CloseIcon from "src/assets/icons/close.svg";
-
 import { DrawerHeader, StyledDrawer, StyledOverlay } from "./Drawer.styled";
 
 const Drawer = (props, ref) => {
@@ -26,7 +24,6 @@ const Drawer = (props, ref) => {
         <StyledDrawer>
           <DrawerHeader>
             <p>Order Placement</p>
-            <CloseIcon onClick={closeDrawer} />
           </DrawerHeader>
         </StyledDrawer>
       </>

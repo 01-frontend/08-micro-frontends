@@ -26,5 +26,9 @@ module.exports = () =>
         singleton: true,
         requiredVersion: deps["react-router-dom"],
       },
+      "styled-components": {
+        singleton: true,
+        requiredVersion: deps["styled-components"],
+      },
     },
   });

@@ -2,7 +2,6 @@ const path = require("path");
 
 const bundleStatsWebpackPlugin = require("./plugins/bundle-stats-webpack-plugin");
 const cleanWebpackPlugin = require("./plugins/clean-webpack-plugin");
-const copyWebpackPlugin = require("./plugins/copy-webpack-plugin");
 const htmlWebpackPlugin = require("./plugins/html-webpack-plugin");
 const moduleFederation = require("./plugins/module-federation");
 const handleCss = require("./rules/handle-css");
@@ -26,7 +25,6 @@ module.exports = {
   plugins: [
     htmlWebpackPlugin(),
     cleanWebpackPlugin(),
-    copyWebpackPlugin(),
     bundleStatsWebpackPlugin(),
     moduleFederation(),
   ],

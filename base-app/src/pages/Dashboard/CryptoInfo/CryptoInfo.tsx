@@ -5,9 +5,6 @@ import { mfeLoader } from "shared-lib/dist/hooks/mfeLoader";
 
 export const CryptoInfo = () => {
   const { pathname } = useLocation();
-
-  console.log("pathname: ", pathname);
-
   const CryptoInfoMfe = mfeLoader<CommonMfeProps>({
     remoteUrl: `http://localhost:${MfePort.CRYPTO_INFO}/remoteEntry.js`,
     mfeName: MfeName.CRYPTO_INFO,
