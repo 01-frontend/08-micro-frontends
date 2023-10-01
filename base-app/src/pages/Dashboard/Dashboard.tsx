@@ -8,8 +8,9 @@ import { StyledHeader, StyledTab, StyledTabs } from "./Dashboard.styled";
 const Dashboard = () => {
   const history = useHistory();
   const { pathname } = useLocation();
-  const initPathname = pathname === "/" ? Tab.CryptoInfo : pathname;
-  const [activeTab, setActiveTab] = useState(initPathname);
+  const [activeTab, setActiveTab] = useState(`/${pathname.split("/")[1]}`);
+
+  console.log(pathname);
 
   const changeTab = (tab) => {
     if (activeTab !== tab) {

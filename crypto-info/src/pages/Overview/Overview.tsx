@@ -1,5 +1,5 @@
-import Section from "../../component/Section";
+import { Dummy } from "src/components/Dummy";
 
 export const Overview = () => {
-  return <Section title="hello">world</Section>;
+  return <Dummy>Crypto Info</Dummy>;
 };
