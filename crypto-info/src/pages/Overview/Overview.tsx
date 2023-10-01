@@ -1,5 +1,5 @@
 import Section from "../../component/Section";
 
 export const Overview = () => {
-  return <div>overview</div>;
+  return <Section title="hello">world</Section>;
 };

@@ -35,5 +35,5 @@ On the other hand, all child MFEs are separated so it isn't easy to follow a com
 https://dev.to/bitovi/how-to-build-a-micro-frontend-with-webpacks-module-federation-plugin-n41
 https://github.com/module-federation/module-federation-examples
 
-npm i react@17.0.2 react-dom@17.0.2
-npm i @types/react@latest @types/react-dom@latest @types/react-router-dom@latest -D
+npm i styled-components@6.0.8
+npm i @types/styled-components@latest -D

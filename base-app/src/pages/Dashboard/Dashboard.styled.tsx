@@ -17,8 +17,8 @@ export const StyledTabs = styled.div`
   padding: 0 20px;
 `;
 
-export const StyledTab = styled.span`
-  ${({ isActive }: { isActive: boolean }) => css`
+export const StyledTab = styled.span<{ isActive: boolean }>`
+  ${({ isActive }) => css`
     height: 44px;
     display: inline-block;
     border: none;

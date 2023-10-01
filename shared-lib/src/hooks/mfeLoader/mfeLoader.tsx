@@ -34,7 +34,7 @@ export const mfeLoader = <CompType,>({
     return (
       <ErrorBoundary
         fallbackRender={(error) => {
-          console.log(error);
+          console.error("mfeLoader Error", error);
           return errorElement || defaultError;
         }}
       >
