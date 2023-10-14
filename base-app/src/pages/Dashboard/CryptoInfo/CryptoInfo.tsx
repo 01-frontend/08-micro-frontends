@@ -1,6 +1,5 @@
+import { CommonMfeProps, MfeName, MfePort } from "@anhthi-deep-dive/fe_rollup";
 import { useLocation } from "react-router-dom";
-import { MfeName, MfePort } from "shared-lib/dist/common/constants";
-import { CommonMfeProps } from "shared-lib/dist/common/types";
 import { mfeLoader } from "src/hooks/mfeLoader";
 
 export const CryptoInfo = () => {

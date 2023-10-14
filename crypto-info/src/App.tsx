@@ -1,6 +1,6 @@
 import { FC, StrictMode } from "react";
 
-import { CommonMfeProps } from "shared-lib/dist/common/types";
+import { CommonMfeProps } from "@anhthi-deep-dive/fe_rollup";
 
 import { Routes } from "./Routes";
 

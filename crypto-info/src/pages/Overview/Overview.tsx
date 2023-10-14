@@ -1,5 +1,5 @@
-import { Dummy } from "shared-lib/dist/components/Dummy";
+import { Button } from "@anhthi-deep-dive/fe_rollup";
 
 export const Overview = () => {
-  return <Dummy>Crypto Info</Dummy>;
+  return <Button text="hello" />;
 };

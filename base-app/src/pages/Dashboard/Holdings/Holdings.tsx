@@ -1,8 +1,7 @@
 import { Suspense } from "react";
 
+import { MfeName, MfePort, CommonMfeProps } from "@anhthi-deep-dive/fe_rollup";
 import { useLocation } from "react-router-dom";
-import { MfeName, MfePort } from "shared-lib/dist/common/constants";
-import { CommonMfeProps } from "shared-lib/dist/common/types";
 import { useFederatedComp } from "src/hooks/useFederatedComp";
 
 export const Holdings = () => {

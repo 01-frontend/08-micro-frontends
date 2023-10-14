@@ -1,5 +1,4 @@
-import { MfeName, MfePort } from "shared-lib/dist/common/constants";
-import { mfeLoader } from "shared-lib/dist/hooks/mfeLoader";
+import { MfeName, MfePort, mfeLoader } from "@anhthi-deep-dive/fe_rollup";
 
 export const OrderMgt = () => {
   const BuiltOrderMgt = mfeLoader({
