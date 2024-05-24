@@ -39,13 +39,6 @@ const Dashboard = () => {
           changeTab(BaseRoute.Holdings);
         },
       },
-      {
-        isActive: activeTab === BaseRoute.OrderMgt,
-        title: "Order Management",
-        onClick: () => {
-          changeTab(BaseRoute.OrderMgt);
-        },
-      },
     ];
   }, [activeTab]);
 

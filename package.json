@@ -7,21 +7,21 @@
     "start:base-app": "cd ./base-app && npm start",
     "start:crypto-info": "cd ./crypto-info && npm start",
     "start:holdings": "cd ./holdings && npm start",
-    "start:order-mgt": "cd ./order-mgt && npm start",
-    "start": "concurrently --kill-others \"npm run start:crypto-info\" \"npm run start:holdings\" \"npm run start:order-mgt\" \"npm run start:base-app\"",
-    "install-mfes": "concurrently --kill-others \"cd ./base-app && npm install\" \"cd ./crypto-info && npm install\" \"cd ./holdings && npm install\" \"cd ./order-mgt && npm install\""
+    "start:placed-trade": "cd ./placed-trade && npm start",
+    "start": "concurrently --kill-others \"npm run start:crypto-info\" \"npm run start:holdings\" \"npm run start:placed-trade\" \"npm run start:base-app\"",
+    "install-mfes": "concurrently --kill-others \"cd ./base-app && npm install\" \"cd ./crypto-info && npm install\" \"cd ./holdings && npm install\" \"cd ./placed-trade && npm install\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anhthi-deep-dive/FE_micro-frontends.git"
+    "url": "git+https://github.com/01-frontend/08-micro-frontends.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anhthi-deep-dive/FE_micro-frontends/issues"
+    "url": "https://github.com/01-frontend/08-micro-frontends/issues"
   },
-  "homepage": "https://github.com/anhthi-deep-dive/FE_micro-frontends#readme",
+  "homepage": "https://github.com/01-frontend/08-micro-frontends#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
   }

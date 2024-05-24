@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/project-boilerplate/holdings.git"
+    "url": "git+https://github.com/01-frontend/holdings.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/project-boilerplate/holdings/issues"
+    "url": "https://github.com/01-frontend/holdings/issues"
   },
-  "homepage": "https://github.com/project-boilerplate/holdings#readme",
+  "homepage": "https://github.com/01-frontend/holdings#readme",
   "dependencies": {
     "@anhthi-projects/usy-ui": "^1.0.4",
     "@babel/runtime": "^7.20.6",
@@ -71,3 +71,4 @@
     "whatwg-fetch": "^3.6.2"
   }
 }
+

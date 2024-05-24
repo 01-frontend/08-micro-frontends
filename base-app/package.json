@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/project-boilerplate/base-app.git"
+    "url": "git+https://github.com/01-frontend/base-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/project-boilerplate/base-app/issues"
+    "url": "https://github.com/01-frontend/base-app/issues"
   },
-  "homepage": "https://github.com/project-boilerplate/base-app#readme",
+  "homepage": "https://github.com/01-frontend/base-app#readme",
   "dependencies": {
     "@babel/runtime": "^7.20.6",
     "react": "^18.1.0",

@@ -6,7 +6,7 @@ const deps = packageJson.dependencies;
 
 module.exports = () =>
   new ModuleFederationPlugin({
-    name: "orderMgt",
+    name: "placedTrade",
     filename: "remoteEntry.js",
     exposes: {
       "./App": "./src/App",

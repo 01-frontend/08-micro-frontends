@@ -1,5 +1,5 @@
 {
-  "name": "equity-info",
+  "name": "crypto-info",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/project-boilerplate/equity-info.git"
+    "url": "git+https://github.com/01-frontend/crypto-info.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/project-boilerplate/equity-info/issues"
+    "url": "https://github.com/01-frontend/crypto-info/issues"
   },
-  "homepage": "https://github.com/project-boilerplate/equity-info#readme",
+  "homepage": "https://github.com/01-frontend/crypto-info#readme",
   "dependencies": {
     "@anhthi-projects/usy-ui": "^1.0.8",
     "@babel/runtime": "^7.20.6",

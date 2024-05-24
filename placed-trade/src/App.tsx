@@ -7,6 +7,6 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const App = () => <Container>This is Order Mgt</Container>;
+const App = () => <Container>This is Placed Trade</Container>;
 
 export default App;

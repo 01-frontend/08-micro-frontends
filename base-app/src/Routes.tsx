@@ -4,7 +4,6 @@ import { BaseRoute } from "./common/constants";
 import Dashboard from "./pages/Dashboard";
 import { CryptoInfo } from "./pages/Dashboard/CryptoInfo";
 import { Holdings } from "./pages/Dashboard/Holdings";
-import { OrderMgt } from "./pages/Dashboard/OrderMgt";
 
 export const AppRoutes = () => {
   return (
@@ -17,9 +16,6 @@ export const AppRoutes = () => {
           </Route>
           <Route path={BaseRoute.Holdings}>
             <Holdings />
-          </Route>
-          <Route path={BaseRoute.OrderMgt}>
-            <OrderMgt />
           </Route>
           <Route path="/">
             <Redirect to={BaseRoute.CryptoInfo} />
