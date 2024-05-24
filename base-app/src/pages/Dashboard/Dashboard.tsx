@@ -41,7 +41,7 @@ const Dashboard = () => {
       },
       {
         isActive: activeTab === BaseRoute.OrderMgt,
-        title: "Order Mgt",
+        title: "Order Management",
         onClick: () => {
           changeTab(BaseRoute.OrderMgt);
         },

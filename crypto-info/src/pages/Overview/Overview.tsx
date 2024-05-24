@@ -1,36 +1,43 @@
-import { Button } from "@anhthi-projects/usy-ui";
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import { Drawer, DrawerContent, DrawerHeader } from "@anhthi-projects/usy-ui";
+import { Route, useHistory } from "react-router-dom";
+import { AppRoutes } from "src/common/constants";
+import { coinData } from "src/data/coinData";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+import { CoinDetails } from "./CoinDetails";
+import { CoinInfoRow } from "./CoinInfoRow";
+import { Container } from "./Overview.styled";
 
 export const Overview = () => {
   const history = useHistory();
 
-  const redirectToBTC = () => {
-    history.push(`/coin-details/btc`);
+  const handleDrawerClose = () => {
+    history.goBack();
   };
 
   return (
     <Container>
-      <p>This is the Crypto Info - Overview</p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "20px",
-        }}
-      >
-        <Button type="primary" onClick={redirectToBTC}>
-          View BTC details
-        </Button>
-      </div>
+      {coinData.map(({ name, code, bid, ask, updatedTime }) => (
+        <CoinInfoRow
+          key={code}
+          name={name}
+          code={code}
+          bid={bid}
+          ask={ask}
+          updatedTime={updatedTime}
+        />
+      ))}
+      <Route path={AppRoutes.COIN_DETAILS}>
+        <Drawer
+          header={
+            <DrawerHeader title="Coin Details" onClose={handleDrawerClose} />
+          }
+          isOpen
+        >
+          <DrawerContent>
+            <CoinDetails />
+          </DrawerContent>
+        </Drawer>
+      </Route>
     </Container>
   );
 };

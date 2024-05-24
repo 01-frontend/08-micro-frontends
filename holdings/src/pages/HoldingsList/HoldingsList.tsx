@@ -14,7 +14,7 @@ export const HoldingsList: FC<HoldingsListProps> = ({ baseHistory }) => {
 
   return (
     <Dummy>
-      <Button onClick={goBack}>
+      <Button size="small" onClick={goBack}>
         <ArrowHeadLeftIcon />
       </Button>
       Holdings List

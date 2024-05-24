@@ -2,23 +2,19 @@ import { FC } from "react";
 
 import { Route, Redirect, BrowserRouter, Switch } from "react-router-dom";
 
-import { Tab } from "./common/constants";
+import { AppRoutes } from "./common/constants";
 import { CommonMfeProps } from "./hooks/mfeLoader";
-import { CoinDetails } from "./pages/CoinDetails";
 import { Overview } from "./pages/Overview";
 
-export const Routes: FC<CommonMfeProps> = ({ basePath, baseHistory }) => {
+export const Routes: FC<CommonMfeProps> = ({ basePath }) => {
   return (
     <BrowserRouter basename={basePath}>
       <Switch>
-        <Route path={Tab.OVERVIEW}>
+        <Route path={AppRoutes.OVERVIEW}>
           <Overview />
         </Route>
-        <Route path={Tab.COIN_DETAILS}>
-          <CoinDetails baseHistory={baseHistory} />
-        </Route>
         <Route path="*">
-          <Redirect to={Tab.OVERVIEW} />
+          <Redirect to={AppRoutes.OVERVIEW} />
         </Route>
       </Switch>
     </BrowserRouter>

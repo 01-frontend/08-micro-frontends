@@ -1,4 +1,4 @@
-export enum Tab {
-  OVERVIEW = "/overview",
+export enum AppRoutes {
+  OVERVIEW = "/",
   COIN_DETAILS = "/coin-details/:coinCode",
 }
