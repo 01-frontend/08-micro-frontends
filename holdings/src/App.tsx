@@ -1,8 +1,7 @@
 import { FC, StrictMode } from "react";
 
-import { CommonMfeProps } from "@anhthi-deep-dive/fe_rollup";
-
 import { Routes } from "./Routes";
+import { CommonMfeProps } from "./hooks/mfeLoader";
 
 const App: FC<CommonMfeProps> = ({ basePath }) => {
   return (
