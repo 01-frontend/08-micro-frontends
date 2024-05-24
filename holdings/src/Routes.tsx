@@ -3,8 +3,8 @@ import { FC } from "react";
 import { Route, Redirect, BrowserRouter, Switch } from "react-router-dom";
 
 import { Tab } from "./common/constants";
-import { HoldingsList } from "./pages/HoldingsList";
 import { CommonMfeProps } from "./hooks/mfeLoader";
+import { HoldingsList } from "./pages/HoldingsList";
 
 export const Routes: FC<CommonMfeProps> = ({ basePath }) => {
   return (

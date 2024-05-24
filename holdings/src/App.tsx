@@ -1,7 +1,7 @@
 import { FC, StrictMode } from "react";
 
-import { Routes } from "./Routes";
 import { CommonMfeProps } from "./hooks/mfeLoader";
+import { Routes } from "./Routes";
 
 const App: FC<CommonMfeProps> = ({ basePath }) => {
   return (

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useLocation, useHistory } from "react-router-dom";
 import { Tab } from "src/common/constants";
@@ -10,7 +10,9 @@ const Dashboard = () => {
   const { pathname } = useLocation();
   const [activeTab, setActiveTab] = useState(`/${pathname.split("/")[1]}`);
 
-  console.log(pathname);
+  useEffect(() => {
+    setActiveTab(`/${pathname.split("/")[1]}`);
+  }, [pathname]);
 
   const changeTab = (tab) => {
     if (activeTab !== tab) {

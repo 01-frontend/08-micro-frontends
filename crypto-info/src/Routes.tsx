@@ -3,8 +3,9 @@ import { FC } from "react";
 import { Route, Redirect, BrowserRouter, Switch } from "react-router-dom";
 
 import { Tab } from "./common/constants";
-import { Overview } from "./pages/Overview";
 import { CommonMfeProps } from "./hooks/mfeLoader";
+import { CoinDetails } from "./pages/CoinDetails";
+import { Overview } from "./pages/Overview";
 
 export const Routes: FC<CommonMfeProps> = ({ basePath }) => {
   return (
@@ -13,7 +14,10 @@ export const Routes: FC<CommonMfeProps> = ({ basePath }) => {
         <Route path={Tab.OVERVIEW}>
           <Overview />
         </Route>
-        <Route path="/">
+        <Route path={Tab.COIN_DETAILS}>
+          <CoinDetails />
+        </Route>
+        <Route path="*">
           <Redirect to={Tab.OVERVIEW} />
         </Route>
       </Switch>
