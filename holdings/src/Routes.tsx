@@ -6,12 +6,12 @@ import { Tab } from "./common/constants";
 import { CommonMfeProps } from "./hooks/mfeLoader";
 import { HoldingsList } from "./pages/HoldingsList";
 
-export const Routes: FC<CommonMfeProps> = ({ basePath }) => {
+export const Routes: FC<CommonMfeProps> = ({ basePath, baseHistory }) => {
   return (
     <BrowserRouter basename={basePath}>
       <Switch>
         <Route path={Tab.HOLDINGS_LIST}>
-          <HoldingsList />
+          <HoldingsList baseHistory={baseHistory} />
         </Route>
         <Route path="/">
           <Redirect to={Tab.HOLDINGS_LIST} />

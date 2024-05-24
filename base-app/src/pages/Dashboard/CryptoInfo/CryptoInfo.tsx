@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   CommonMfeProps,
   MfeName,
@@ -8,6 +8,7 @@ import {
 import { getMfePath } from "src/utils/helpers";
 
 export const CryptoInfo = () => {
+  const history = useHistory();
   const { pathname } = useLocation();
 
   const CryptoInfoMfe = mfeLoader<CommonMfeProps>({
@@ -16,5 +17,7 @@ export const CryptoInfo = () => {
     moduleName: "./App",
   });
 
-  return <CryptoInfoMfe basePath={getMfePath(pathname)} />;
+  return (
+    <CryptoInfoMfe basePath={getMfePath(pathname)} baseHistory={history} />
+  );
 };

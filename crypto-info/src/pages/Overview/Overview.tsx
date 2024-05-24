@@ -19,9 +19,18 @@ export const Overview = () => {
   return (
     <Container>
       <p>This is the Crypto Info - Overview</p>
-      <Button type="primary" onClick={redirectToBTC}>
-        View BTC details
-      </Button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "20px",
+        }}
+      >
+        <Button type="primary" onClick={redirectToBTC}>
+          View BTC details
+        </Button>
+      </div>
     </Container>
   );
 };

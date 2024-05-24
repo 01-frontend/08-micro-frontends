@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   CommonMfeProps,
   MfeName,
@@ -8,6 +8,7 @@ import {
 import { getMfePath } from "src/utils/helpers";
 
 export const Holdings = () => {
+  const history = useHistory();
   const { pathname } = useLocation();
 
   const HoldingsMfe = mfeLoader<CommonMfeProps>({
@@ -16,5 +17,5 @@ export const Holdings = () => {
     moduleName: "./App",
   });
 
-  return <HoldingsMfe basePath={getMfePath(pathname)} />;
+  return <HoldingsMfe basePath={getMfePath(pathname)} baseHistory={history} />;
 };

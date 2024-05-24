@@ -1,4 +1,5 @@
 export interface CommonMfeProps {
+  baseHistory: any;
   basePath?: string;
 }
 

@@ -1,5 +1,6 @@
 export interface CommonMfeProps {
-  basePath?: string;
+  baseHistory: History;
+  basePath: string;
 }
 
 export enum MfeName {
