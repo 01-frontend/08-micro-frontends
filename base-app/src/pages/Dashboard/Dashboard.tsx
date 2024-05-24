@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { useLocation, useHistory } from "react-router-dom";
-import { Tab } from "src/common/constants";
+import { BaseRoute } from "src/common/constants";
+import { getMfePath } from "src/utils/helpers";
 
 import { StyledHeader, StyledTab, StyledTabs } from "./Dashboard.styled";
 
 const Dashboard = () => {
   const history = useHistory();
   const { pathname } = useLocation();
-  const [activeTab, setActiveTab] = useState(`/${pathname.split("/")[1]}`);
+
+  const [activeTab, setActiveTab] = useState(getMfePath(pathname));
 
   useEffect(() => {
-    setActiveTab(`/${pathname.split("/")[1]}`);
+    setActiveTab(getMfePath(pathname));
   }, [pathname]);
 
   const changeTab = (tab) => {
@@ -24,24 +26,24 @@ const Dashboard = () => {
   const tabs = useMemo(() => {
     return [
       {
-        isActive: activeTab === Tab.CryptoInfo,
+        isActive: activeTab === BaseRoute.CryptoInfo,
         title: "Crypto Info",
         onClick: () => {
-          changeTab(Tab.CryptoInfo);
+          changeTab(BaseRoute.CryptoInfo);
         },
       },
       {
-        isActive: activeTab === Tab.Holdings,
+        isActive: activeTab === BaseRoute.Holdings,
         title: "Holdings",
         onClick: () => {
-          changeTab(Tab.Holdings);
+          changeTab(BaseRoute.Holdings);
         },
       },
       {
-        isActive: activeTab === Tab.OrderMgt,
+        isActive: activeTab === BaseRoute.OrderMgt,
         title: "Order Mgt",
         onClick: () => {
-          changeTab(Tab.OrderMgt);
+          changeTab(BaseRoute.OrderMgt);
         },
       },
     ];

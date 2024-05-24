@@ -1,12 +1,20 @@
-import { MfeName, MfePort, mfeLoader } from "src/hooks/mfeLoader";
-
+import { useLocation } from "react-router-dom";
+import {
+  CommonMfeProps,
+  MfeName,
+  MfePort,
+  mfeLoader,
+} from "src/hooks/mfeLoader";
+import { getMfePath } from "src/utils/helpers";
 
 export const OrderMgt = () => {
-  const BuiltOrderMgt = mfeLoader({
+  const { pathname } = useLocation();
+
+  const OrderMgtMfe = mfeLoader<CommonMfeProps>({
     remoteUrl: `http://localhost:${MfePort.ORDER_MGT}/remoteEntry.js`,
     mfeName: MfeName.ORDER_MGT,
     moduleName: "./App",
   });
 
-  return <BuiltOrderMgt />;
+  return <OrderMgtMfe basePath={getMfePath(pathname)} />;
 };

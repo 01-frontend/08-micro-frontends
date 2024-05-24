@@ -1,20 +1,20 @@
-import { Suspense } from "react";
-
 import { useLocation } from "react-router-dom";
-import { CommonMfeProps, MfeName, MfePort } from "src/hooks/mfeLoader";
-import { useFederatedComp } from "src/hooks/useFederatedComp";
+import {
+  CommonMfeProps,
+  MfeName,
+  MfePort,
+  mfeLoader,
+} from "src/hooks/mfeLoader";
+import { getMfePath } from "src/utils/helpers";
 
 export const Holdings = () => {
   const { pathname } = useLocation();
-  const { Component } = useFederatedComp<CommonMfeProps>({
+
+  const HoldingsMfe = mfeLoader<CommonMfeProps>({
     remoteUrl: `http://localhost:${MfePort.HOLDINGS}/remoteEntry.js`,
-    scope: MfeName.HOLDINGS,
-    module: "./App",
+    mfeName: MfeName.HOLDINGS,
+    moduleName: "./App",
   });
 
-  return (
-    <Suspense fallback={<p>Suspense Loading...</p>}>
-      {Component && <Component basePath={pathname} />}
-    </Suspense>
-  );
+  return <HoldingsMfe basePath={getMfePath(pathname)} />;
 };

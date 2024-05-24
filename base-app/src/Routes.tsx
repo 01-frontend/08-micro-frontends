@@ -1,6 +1,6 @@
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 
-import { Tab } from "./common/constants";
+import { BaseRoute } from "./common/constants";
 import Dashboard from "./pages/Dashboard";
 import { CryptoInfo } from "./pages/Dashboard/CryptoInfo";
 import { Holdings } from "./pages/Dashboard/Holdings";
@@ -12,17 +12,17 @@ export const AppRoutes = () => {
       <Switch>
         <Route path="/">
           <Dashboard />
-          <Route path={Tab.CryptoInfo}>
+          <Route path={BaseRoute.CryptoInfo}>
             <CryptoInfo />
           </Route>
-          <Route path={Tab.Holdings}>
+          <Route path={BaseRoute.Holdings}>
             <Holdings />
           </Route>
-          <Route path={Tab.OrderMgt}>
+          <Route path={BaseRoute.OrderMgt}>
             <OrderMgt />
           </Route>
           <Route path="/">
-            <Redirect to={Tab.CryptoInfo} />
+            <Redirect to={BaseRoute.CryptoInfo} />
           </Route>
         </Route>
       </Switch>
