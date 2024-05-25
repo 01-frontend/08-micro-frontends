@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@anhthi-projects/usy-ui':
+        specifier: ^1.0.8
+        version: 1.0.8(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@babel/runtime':
         specifier: ^7.20.6
         version: 7.24.6
@@ -147,6 +150,14 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@anhthi-projects/usy-ui@1.0.8':
+    resolution: {integrity: sha512-XKu/D5frws2pOmMkDSxmzplp9OcO0U6m3+qoOdFl+wqOT/tnvgZnCTm5VIuHbYx1MNWuHSd/LQ/Qz3z81LgY+A==, tarball: https://npm.pkg.github.com/download/@anhthi-projects/usy-ui/1.0.8/4d1e00f4a07cd58a277e0194b0df489510edf55d}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
 
   '@babel/code-frame@7.24.6':
     resolution: {integrity: sha512-ZJhac6FkEd1yhG2AHOmfcXG4ceoLltoCVJjN5XsWN9BifBQr+cHJbWi0h68HZuSORq+3WtJ2z0hwF2NG1b5kcA==}
@@ -4062,6 +4073,13 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@anhthi-projects/usy-ui@1.0.8(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@babel/code-frame@7.24.6':
     dependencies:

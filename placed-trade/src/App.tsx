@@ -1,12 +1,23 @@
-import styled from "styled-components";
+import { createContext, FC, StrictMode } from "react";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+import "@anhthi-projects/usy-ui/dist/styles.css";
 
-const App = () => <Container>This is Placed Trade</Container>;
+import { CommonMfeProps } from "./hooks/mfeLoader";
+import { Routes } from "./Routes";
+
+export const AppContext = createContext<CommonMfeProps>({
+  basePath: "",
+  baseHistory: null,
+});
+
+const App: FC<CommonMfeProps> = ({ basePath, baseHistory }) => {
+  return (
+    <StrictMode>
+      <AppContext.Provider value={{ basePath, baseHistory }}>
+        <Routes basePath={basePath} baseHistory={baseHistory} />
+      </AppContext.Provider>
+    </StrictMode>
+  );
+};
 
 export default App;

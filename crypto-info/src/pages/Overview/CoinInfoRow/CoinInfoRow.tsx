@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import { Button } from "@anhthi-projects/usy-ui";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import { AppContext } from "src/App";
 import { AppRoutes } from "src/common/constants";
 import { mapParams } from "src/utils/helpers";
 
@@ -25,11 +26,14 @@ interface CoinInfoRowProps {
 
 export const CoinInfoRow: FC<CoinInfoRowProps> = ({ name, code, bid, ask }) => {
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const viewCoinDetail = (code: string) => {
     const completedPath = mapParams(AppRoutes.COIN_DETAILS, {
+      basePath: pathname,
       coinCode: code,
     });
+    console.log(completedPath);
     history.push(completedPath);
   };
 
