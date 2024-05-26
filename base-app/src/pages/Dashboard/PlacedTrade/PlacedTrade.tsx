@@ -1,4 +1,3 @@
-import { Drawer, DrawerContent, DrawerHeader } from "@anhthi-projects/usy-ui";
 import { useHistory, useLocation } from "react-router-dom";
 import {
   CommonMfeProps,
@@ -19,15 +18,6 @@ export const PlacedTrade = () => {
   });
 
   return (
-    <Drawer
-      header={
-        <DrawerHeader title="Placed Trade" onClose={() => history.goBack()} />
-      }
-      isOpen
-    >
-      <DrawerContent>
-        <PlacedTradeMfe basePath={getMfePath(pathname)} baseHistory={history} />
-      </DrawerContent>
-    </Drawer>
+    <PlacedTradeMfe basePath={getMfePath(pathname, 2)} baseHistory={history} />
   );
 };

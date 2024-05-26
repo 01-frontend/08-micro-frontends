@@ -10,11 +10,11 @@ export const Routes: FC<CommonMfeProps> = ({ basePath, baseHistory }) => {
   return (
     <BrowserRouter basename={basePath}>
       <Switch>
-        <Route path={Tab.HOLDINGS_LIST}>
+        <Route path={Tab.OVERVIEW}>
           <HoldingsList baseHistory={baseHistory} />
         </Route>
         <Route path="/">
-          <Redirect to={Tab.HOLDINGS_LIST} />
+          <Redirect to={Tab.OVERVIEW} />
         </Route>
       </Switch>
     </BrowserRouter>
